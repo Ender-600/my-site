@@ -2,14 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  Download,
-  Github,
-  Linkedin,
-  Mail,
-  ChevronDown,
-} from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -105,7 +98,7 @@ export function Hero() {
           >
             <div className="inline-block mb-8 relative">
               <span className="text-sm font-medium text-gray-600 dark:text-gray-400 tracking-wider uppercase relative z-10">
-                Hello, I'm
+                Hello, I&apos;m
               </span>
               <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gray-400 to-transparent dark:via-gray-600"></div>
             </div>

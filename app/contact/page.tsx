@@ -13,7 +13,7 @@ export default function ContactPage() {
               Get In Touch
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed font-light">
-              Let's collaborate on innovative projects and explore the
+              Let&apos;s collaborate on innovative projects and explore the
               possibilities of AI and technology
             </p>
           </div>

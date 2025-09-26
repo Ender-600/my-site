@@ -8,15 +8,12 @@ import {
   Code,
   Brain,
   Database,
-  BookOpen,
   Award,
   Users,
   ArrowRight,
   GraduationCap,
-  Briefcase,
   Cpu,
   Globe,
-  ChevronRight,
 } from "lucide-react";
 
 const experiences = [
@@ -174,7 +171,7 @@ export function About() {
                     Personal Profile
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed font-light text-lg relative z-10">
-                    I'm a Mathematics and Computer Science student at the
+                    I&apos;m a Mathematics and Computer Science student at the
                     University of Illinois Urbana-Champaign with a passion for
                     building intelligent systems and creating exceptional
                     digital experiences. My work spans across machine learning,

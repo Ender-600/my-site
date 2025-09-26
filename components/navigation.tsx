@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
+import { Menu, Sun, Moon, ChevronDown } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const navItems = [
@@ -19,7 +19,6 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
-  const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const { theme, setTheme } = useTheme();
 
@@ -32,10 +31,6 @@ export function Navigation() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setIsVisible(true);
   }, []);
 
   // 计算导航栏的透明度和位置
