@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -16,6 +15,8 @@ const skills = [
   "Deep Learning",
   "Data Science",
 ];
+
+import { Hero3D } from "@/components/hero-3d";
 
 export function Hero() {
   const [currentSkill, setCurrentSkill] = useState(0);
@@ -44,16 +45,12 @@ export function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center bg-white dark:bg-black overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center justify-center bg-[#f5f4f0] dark:bg-black overflow-hidden pt-20"
     >
       {/* 背景元素 */}
       <div className="absolute inset-0">
-        {/* 几何图形 */}
-        <div className="absolute top-20 left-10 w-32 h-32 border border-gray-200 dark:border-gray-800 rotate-45 animate-spin-slow opacity-20"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-gray-100 dark:bg-gray-900 rounded-full animate-pulse opacity-30"></div>
-        <div className="absolute bottom-32 left-1/4 w-16 h-16 border-2 border-gray-300 dark:border-gray-700 rotate-12 animate-bounce-slow opacity-25"></div>
-        <div className="absolute bottom-20 right-1/3 w-20 h-20 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 rounded-sm rotate-45 animate-float opacity-20"></div>
-
+        <Hero3D mousePosition={mousePosition} />
+        
         {/* 动态网格 */}
         <div className="absolute inset-0 opacity-5 dark:opacity-10">
           <div
@@ -117,7 +114,7 @@ export function Hero() {
                 & AI Researcher
               </span>
               <span className="block text-gray-200 dark:text-gray-800 text-4xl md:text-5xl lg:text-6xl mt-4 font-extralight">
-                & Designer
+                & Product Engineer
               </span>
             </h1>
           </div>
@@ -196,9 +193,7 @@ export function Hero() {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            Passionate about building intelligent systems and creating
-            exceptional digital experiences. Currently pursuing Mathematics and
-            Computer Science at UIUC.
+            Math &amp; CS @ UIUC · Incoming M.Eng. EECS @ UC Berkeley · Building intelligent systems at the intersection of ML research and engineering.
           </p>
 
           {/* CTA 按钮 */}
@@ -209,28 +204,16 @@ export function Hero() {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <Button
-              size="lg"
-              className="group relative bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 px-12 py-6 text-lg font-medium transition-all duration-500 hover-lift overflow-hidden"
+            <a
+              href="#projects"
+              className="group relative inline-flex items-center bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 px-12 py-4 text-lg font-medium transition-all duration-500 hover-lift overflow-hidden"
             >
               <span className="relative z-10 flex items-center">
                 View My Work
                 <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-            </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              className="group relative border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-600 px-12 py-6 text-lg font-medium transition-all duration-500 hover-lift overflow-hidden"
-            >
-              <span className="relative z-10 flex items-center">
-                <Download className="mr-3 h-5 w-5 group-hover:animate-bounce" />
-                Download Resume
-              </span>
-              <div className="absolute inset-0 bg-gray-100 dark:bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-            </Button>
+            </a>
           </div>
 
           {/* 社交链接 */}
@@ -253,7 +236,7 @@ export function Hero() {
                 label: "LinkedIn",
               },
               {
-                href: "mailto:boyul5@illinois.edu",
+                href: "mailto:liuboyu1110@gmail.com",
                 icon: Mail,
                 label: "Email",
               },

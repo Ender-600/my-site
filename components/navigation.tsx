@@ -1,18 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Sun, Moon, ChevronDown } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Projects", href: "/projects" },
-  { name: "Research", href: "/research" },
-  { name: "Contact", href: "/contact" },
+  { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Publication", href: "#publication" },
+  { name: "Blog", href: "#blog" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export function Navigation() {
@@ -20,7 +19,10 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
   const [scrollY, setScrollY] = useState(0);
-  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +43,7 @@ export function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         isScrolled
-          ? "bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-lg"
+          ? "bg-[#f5f4f0]/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-lg"
           : "bg-transparent"
       }`}
       style={{
@@ -52,7 +54,7 @@ export function Navigation() {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Enhanced Logo */}
-          <Link href="/" className="group flex items-center space-x-4">
+          <a href="#" className="group flex items-center space-x-4">
             <div className="relative">
               <div className="w-10 h-10 bg-black dark:bg-white rounded-sm flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 relative overflow-hidden">
                 <span className="text-white dark:text-black font-bold text-lg relative z-10">
@@ -68,12 +70,12 @@ export function Navigation() {
               </span>
               <div className="w-0 group-hover:w-full h-0.5 bg-gray-400 dark:bg-gray-600 transition-all duration-500 mt-1"></div>
             </div>
-          </Link>
+          </a>
 
           {/* Enhanced Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item, index) => (
-              <Link
+              <a
                 key={item.name}
                 href={item.href}
                 className={`relative text-sm font-medium transition-all duration-500 group ${
@@ -89,7 +91,7 @@ export function Navigation() {
                   <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-black dark:bg-white transition-all duration-500"></div>
                 )}
                 <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-400 dark:bg-gray-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -98,7 +100,7 @@ export function Navigation() {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={() => setTheme(mounted && resolvedTheme === "dark" ? "light" : "dark")}
               className="w-10 h-10 p-0 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 group relative overflow-hidden"
             >
               <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 group-hover:scale-110" />
@@ -126,7 +128,7 @@ export function Navigation() {
               >
                 <div className="flex flex-col space-y-8 mt-16">
                   {navItems.map((item, index) => (
-                    <Link
+                    <a
                       key={item.name}
                       href={item.href}
                       className="group text-2xl font-light text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-400 transition-all duration-500 hover-lift relative overflow-hidden"
@@ -138,7 +140,7 @@ export function Navigation() {
                         <ChevronDown className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                       </span>
                       <div className="absolute inset-0 bg-gray-100 dark:bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </SheetContent>

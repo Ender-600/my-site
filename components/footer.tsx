@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Github,
@@ -15,7 +14,7 @@ import {
 
 export function Footer() {
   return (
-    <footer className="bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 relative overflow-hidden">
+    <footer className="bg-[#f5f4f0] dark:bg-black border-t border-gray-200 dark:border-gray-800 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-64 h-64 border border-gray-200 dark:border-gray-800 rotate-45 animate-spin-slow opacity-5"></div>
@@ -27,7 +26,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-16">
           {/* Enhanced Brand */}
           <div className="space-y-8">
-            <Link href="/" className="group flex items-center space-x-4">
+            <a href="#" className="group flex items-center space-x-4">
               <div className="relative">
                 <div className="w-12 h-12 bg-black dark:bg-white rounded-sm flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 relative overflow-hidden">
                   <span className="text-white dark:text-black font-bold text-lg relative z-10">
@@ -46,7 +45,7 @@ export function Footer() {
                 </span>
                 <div className="w-0 group-hover:w-full h-0.5 bg-gray-400 dark:bg-gray-600 transition-all duration-500 mt-2"></div>
               </div>
-            </Link>
+            </a>
             <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-light max-w-xs">
               Passionate about building intelligent systems and creating
               exceptional digital experiences.
@@ -69,9 +68,11 @@ export function Footer() {
                   label: "Email",
                 },
               ].map((social, index) => (
-                <Link
+                <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group p-4 border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-500 hover-lift relative overflow-hidden"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
@@ -80,7 +81,7 @@ export function Footer() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <social.icon className="h-5 w-5 text-white dark:text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -94,23 +95,21 @@ export function Footer() {
             </h3>
             <ul className="space-y-4">
               {[
-                { href: "/about", name: "About Me" },
-                { href: "/projects", name: "Projects" },
-                { href: "/research", name: "Research" },
-                { href: "/contact", name: "Contact" },
+                { href: "#about", name: "About" },
+                { href: "#projects", name: "Projects" },
+                { href: "#publication", name: "Publication" },
+                { href: "#blog", name: "Blog" },
+                { href: "#contact", name: "Contact" },
               ].map((link, index) => (
                 <li key={link.name}>
-                  <Link
+                  <a
                     href={link.href}
                     className="group text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-all duration-300 font-light flex items-center"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <span className="relative z-10 flex items-center">
-                      {link.name}
-                      <ChevronRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-                    </span>
-                    <div className="absolute inset-0 bg-gray-100 dark:bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                  </Link>
+                    {link.name}
+                    <ChevronRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
+                  </a>
                 </li>
               ))}
             </ul>
@@ -152,7 +151,7 @@ export function Footer() {
             <div className="space-y-4 text-sm text-gray-600 dark:text-gray-400 font-light">
               <p className="flex items-center group hover:text-black dark:hover:text-white transition-colors duration-300">
                 <Mail className="h-4 w-4 mr-3 text-gray-500 dark:text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300" />
-                boyul5@illinois.edu
+                liuboyu1110@gmail.com
               </p>
               <p className="flex items-center group hover:text-black dark:hover:text-white transition-colors duration-300">
                 <Github className="h-4 w-4 mr-3 text-gray-500 dark:text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300" />
@@ -172,7 +171,7 @@ export function Footer() {
         {/* Enhanced Bottom Section */}
         <div className="border-t border-gray-200 dark:border-gray-800 mt-16 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-gray-500 dark:text-gray-500 font-light">
-            © 2024 Boyu Liu. All rights reserved.
+            © 2026 Boyu Liu. All rights reserved.
           </p>
           <div className="flex items-center space-x-4 mt-4 sm:mt-0">
             <p className="text-sm text-gray-500 dark:text-gray-500 flex items-center font-light">
