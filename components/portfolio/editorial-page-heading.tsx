@@ -1,4 +1,4 @@
-import s from "@/app/demos/editorial/editorial.module.css";
+import s from "@/components/portfolio/editorial.module.css";
 
 export function EditorialPageHeading({ label, title, description }: {
   label: string;

@@ -1,9 +1,9 @@
-import { EditorialHeader } from "@/components/demos/editorial-header";
+import { EditorialHeader } from "@/components/portfolio/editorial-header";
 import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import { profile } from "@/lib/resume";
-import s from "./editorial.module.css";
+import s from "@/components/portfolio/editorial.module.css";
 
-export default function EditorialLayout({ children }: { children: React.ReactNode }) {
+export default function PortfolioLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className={s.page} id="editorial-top">
       <a className={s.skip} href="#editorial-main">Skip to content</a>

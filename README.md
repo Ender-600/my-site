@@ -1,21 +1,35 @@
 # Boyu Liu - Personal Portfolio
 
+## Official portfolio
+
+The warm ivory and forest-green editorial design is now the main website:
+
+- `/` — introduction, portrait, and current/previous affiliations.
+- `/work` — nine projects with original screenshots and autoplaying GIF previews, plus research publications.
+- `/about` — education, experience, and technical toolkit.
+- `/blog` — writing space, coming soon.
+
+The former `/demos/editorial` entry redirects to `/`. Its `/work`, `/about`, and
+`/blog` subpages redirect to the matching official routes. Existing editorial
+bookmarks therefore continue to work. The Studio and Research demos remain
+available as alternate design concepts.
+
 ## September 2026 design demos
 
 Run `npm run dev` and open `/demos` to compare three complete portfolio concepts:
 
-- `/demos/editorial` — warm ivory, forest green, editorial typography.
+- `/` — the editorial design, now the official portfolio.
 - `/demos/studio` — graphite, lime, product and engineering work with project filters.
 - `/demos/research` — white, cobalt, research and publications with a desktop index.
 
-The editorial concept has its own homepage and three subpages: `/demos/editorial/work`
-(projects and research), `/demos/editorial/about` (education, experience, and toolkit),
-and `/demos/editorial/blog` (coming soon). Its homepage keeps the introduction,
-portrait, and current/previous affiliations, with links to each subpage.
+The comparison gallery at `/demos` links directly to the official editorial site
+and the two remaining demos. The demo switcher’s Editorial and Home links both
+lead to `/`.
 
 All demos read the September 6, 2026 résumé content from `lib/resume.ts` and link to
 `public/resume/Boyu-Liu-Resume-2026-09.pdf`. Long project and work-experience details
-expand in place. Demo routes are marked `noindex`; the existing homepage remains at `/`.
+expand in place. Demo routes are marked `noindex`; the official pages use `/`,
+`/work`, `/about`, and `/blog`.
 
 A cutting-edge, modern personal website showcasing my work experience, projects, research, and technical expertise in software development and AI research.
 

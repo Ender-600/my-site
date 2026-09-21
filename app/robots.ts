@@ -1,4 +1,5 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { profile } from "@/lib/resume";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://boyu-liu-portfolio.vercel.app/sitemap.xml",
+    sitemap: `${profile.website}/sitemap.xml`,
   };
 }
