@@ -1,5 +1,22 @@
 # Boyu Liu - Personal Portfolio
 
+## September 2026 design demos
+
+Run `npm run dev` and open `/demos` to compare three complete portfolio concepts:
+
+- `/demos/editorial` — warm ivory, forest green, editorial typography.
+- `/demos/studio` — graphite, lime, product and engineering work with project filters.
+- `/demos/research` — white, cobalt, research and publications with a desktop index.
+
+The editorial concept has its own homepage and three subpages: `/demos/editorial/work`
+(projects and research), `/demos/editorial/about` (education, experience, and toolkit),
+and `/demos/editorial/blog` (coming soon). Its homepage keeps the introduction,
+portrait, and current/previous affiliations, with links to each subpage.
+
+All demos read the September 6, 2026 résumé content from `lib/resume.ts` and link to
+`public/resume/Boyu-Liu-Resume-2026-09.pdf`. Long project and work-experience details
+expand in place. Demo routes are marked `noindex`; the existing homepage remains at `/`.
+
 A cutting-edge, modern personal website showcasing my work experience, projects, research, and technical expertise in software development and AI research.
 
 ## ✨ Features

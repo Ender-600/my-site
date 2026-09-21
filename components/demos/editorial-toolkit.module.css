@@ -1,0 +1,156 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 28px;
+  min-width: 0;
+  color: #233a30;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.group {
+  min-width: 0;
+  border-top: 1px solid #d3d8ca;
+  padding-top: 16px;
+}
+
+.groupHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 15px;
+}
+
+.grid .groupTitle {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: #294535;
+}
+
+.groupIndex {
+  color: #85917e;
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.items li {
+  display: flex;
+  min-width: 0;
+}
+
+.grid .skill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 8px 9px;
+  border: 1px solid #dce0d3;
+  border-radius: 3px;
+  background: #f0f1e8;
+  color: #4d614f;
+  text-decoration: none;
+  font-size: 10px;
+  line-height: 1.3;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.skill > span {
+  white-space: nowrap;
+}
+
+.skill .icon {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  color: #48674d;
+}
+
+.skill .linkArrow {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 10px;
+  margin-left: 1px;
+  color: #8b9782;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.grid .skill:hover {
+  border-color: #a5b69a;
+  background: #e6ecdd;
+  color: #223d2d;
+}
+
+.skill:hover .linkArrow {
+  color: #365839;
+  transform: translate(1px, -1px);
+}
+
+.grid .skill:focus-visible {
+  outline: 2px solid #37694f;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    gap: 28px 20px;
+  }
+
+  .items {
+    gap: 6px;
+  }
+
+  .grid .skill {
+    gap: 6px;
+    padding-inline: 8px;
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+
+  .group {
+    padding-top: 15px;
+  }
+
+  .grid .groupTitle {
+    font-size: 12px;
+  }
+
+  .grid .skill {
+    min-height: 39px;
+    padding: 9px 11px;
+    font-size: 11px;
+  }
+
+  .items {
+    gap: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill,
+  .skill .linkArrow {
+    transition: none;
+  }
+
+  .skill:hover .linkArrow {
+    transform: none;
+  }
+}
