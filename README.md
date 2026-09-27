@@ -5,7 +5,7 @@
 The warm ivory and forest-green editorial design is now the main website:
 
 - `/` — introduction, portrait, and current/previous affiliations.
-- `/work` — nine projects with original screenshots and autoplaying GIF previews, plus research publications.
+- `/work` — ten projects with original screenshots, GIF previews, and Century Pano’s World Model video, plus research publications.
 - `/about` — education, experience, and technical toolkit.
 - `/blog` — writing space, coming soon.
 

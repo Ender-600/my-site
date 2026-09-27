@@ -6,6 +6,72 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
 import { portfolioProjects, type PortfolioProject } from "@/lib/portfolio-projects";
 import s from "./editorial-project-gallery.module.css";
 
+function VideoPreview({ src, poster, alt }: { src: string; poster?: string; alt: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let visible = false;
+    let userPaused = false;
+    let automaticPause = false;
+
+    function onPause() {
+      if (!automaticPause) userPaused = true;
+      automaticPause = false;
+    }
+
+    function onPlay() {
+      userPaused = false;
+    }
+
+    function syncPlayback() {
+      if (!video) return;
+      if (visible && !document.hidden && !motionPreference.matches && !userPaused) {
+        void video.play().catch(() => { /* Native controls remain available if autoplay is blocked. */ });
+      } else if (!video.paused) {
+        automaticPause = true;
+        video.pause();
+      }
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting && entry.intersectionRatio >= 0.25;
+      syncPlayback();
+    }, { threshold: 0.25 });
+    observer.observe(video);
+    video.addEventListener("pause", onPause);
+    video.addEventListener("play", onPlay);
+    motionPreference.addEventListener("change", syncPlayback);
+    document.addEventListener("visibilitychange", syncPlayback);
+
+    return () => {
+      observer.disconnect();
+      video.removeEventListener("pause", onPause);
+      video.removeEventListener("play", onPlay);
+      motionPreference.removeEventListener("change", syncPlayback);
+      document.removeEventListener("visibilitychange", syncPlayback);
+      video.pause();
+    };
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      className={s.previewVideo}
+      src={src}
+      poster={poster}
+      aria-label={alt}
+      muted
+      loop
+      playsInline
+      controls
+      preload="none"
+    />
+  );
+}
+
 function ProjectPreview({ project }: { project: PortfolioProject }) {
   const preview = project.preview;
 
@@ -21,9 +87,11 @@ function ProjectPreview({ project }: { project: PortfolioProject }) {
   );
 
   return (
-    <figure className={s.media} data-preview-kind={preview.animated ? "animated-preview" : "screenshot"}>
-      <div className={s.stage}>
-        <Image
+    <figure className={s.media} data-preview-kind={preview.type === "video" ? "video-preview" : preview.animated ? "animated-preview" : "screenshot"}>
+      <div className={`${s.stage} ${preview.type === "video" ? s.videoStage : ""}`}>
+        {preview.type === "video" ? (
+          <VideoPreview src={preview.src} poster={preview.poster} alt={preview.alt} />
+        ) : <Image
           src={preview.src}
           alt={preview.alt}
           fill
@@ -32,10 +100,10 @@ function ProjectPreview({ project }: { project: PortfolioProject }) {
           sizes="(max-width: 700px) 90vw, 760px"
           className={s.previewImage}
           data-preview-state={preview.animated ? "playing" : "still"}
-        />
+        />}
       </div>
       <figcaption className={s.mediaCaption}>
-        <span>{preview.animated ? "Original project demo" : "Original project screenshot"}</span>
+        <span>{preview.caption ?? (preview.animated ? "Original project demo" : "Original project screenshot")}</span>
       </figcaption>
     </figure>
   );
@@ -113,7 +181,7 @@ export function EditorialProjectGallery() {
               <div className={s.tags}>{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
               <div className={s.projectLinks}>
                 {project.href && <a href={project.href} target="_blank" rel="noopener noreferrer">{project.linkLabel}<ArrowUpRight size={15} aria-hidden="true" /></a>}
-                {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer">Watch demo<ArrowUpRight size={15} aria-hidden="true" /></a>}
+                {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer">{project.demoLabel ?? "Watch demo"}<ArrowUpRight size={15} aria-hidden="true" /></a>}
               </div>
               <details className={s.details}><summary>Inside the project<Plus size={14} aria-hidden="true" /><span className={s.srOnly}>: {project.name}</span></summary><ul>{project.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul></details>
             </div>

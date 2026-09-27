@@ -12,12 +12,15 @@ export type PortfolioProject = {
   href: string | null;
   linkLabel: string;
   demo?: string;
+  demoLabel?: string;
   bullets: string[];
   preview?: {
+    type?: "image" | "video";
     src: string;
     poster?: string;
     alt: string;
     animated: boolean;
+    caption?: string;
   };
 };
 
@@ -30,6 +33,31 @@ function resumeProject(id: string): PortfolioProject {
 }
 
 export const portfolioProjects: PortfolioProject[] = [
+  {
+    id: "century-pano",
+    name: "Century Pano",
+    eyebrow: "Stand now, see then",
+    category: "AI & Spatial Computing",
+    summary: "Turn today’s panoramas into imagined scenes from another era, compare past and present, and step inside explorable 3D worlds. Built with our team at HackCMU 2026.",
+    tags: ["Python", "FastAPI", "Three.js", "World Labs"],
+    href: "https://github.com/Ender-600/CenturyPano",
+    linkLabel: "View source",
+    demo: "https://century-pano.vercel.app",
+    demoLabel: "Try it live",
+    bullets: [
+      "Start with a phone panorama, an uploaded photo, or a location in Google Street View, then choose an era to reimagine the scene.",
+      "Compare past and present from the same viewpoint with an interactive panorama viewer.",
+      "Explore generated 3D environments with World Labs Marble. The demo pairs my walk on a real street with a pre-generated 1925 world.",
+    ],
+    preview: {
+      type: "video",
+      src: "/project_preview/century-pano-world.mp4",
+      poster: "/project_preview/century-pano-world-poster.webp",
+      alt: "Split-screen demo of Boyu walking with a controller on a real street alongside an explorable, AI-generated 1925 world",
+      animated: true,
+      caption: "World Model demo · A real street, reimagined in 1925",
+    },
+  },
   {
     id: "pulse-ai",
     name: "PulseAI",
