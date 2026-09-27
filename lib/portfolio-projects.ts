@@ -77,7 +77,6 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     preview: { src: "/project_preview/pulse-ai.png", alt: "Screenshot of the PulseAI stakeholder simulation platform", animated: false },
   },
-  resumeProject("irts"),
   resumeProject("rhythm"),
   {
     id: "pathforms",
@@ -106,21 +105,6 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     ...resumeProject("e3"),
     preview: { src: "/project_preview/E3-mini-bench.gif", poster: "/project_preview/E3-mini-bench-poster.webp", alt: "Actual E3 Mini-Benchmark interface preview from the original portfolio", animated: true },
-  },
-  {
-    id: "twitch-plus",
-    name: "Twitch+",
-    eyebrow: "A more personal way to discover Twitch",
-    category: "Full-Stack Product",
-    summary: "A Twitch resource search app with personalized, content-based recommendations and a full-stack Spring Boot architecture.",
-    tags: ["Spring Boot", "React", "MySQL", "AWS", "Spring Security"],
-    href: "https://u5v6gtkbrw.us-east-2.awsapprunner.com/",
-    linkLabel: "Visit Twitch+",
-    bullets: [
-      "Built a full-stack Spring Boot application for searching Twitch resources with personalized content-based recommendations.",
-      "Implemented a React and Ant Design frontend, MySQL on AWS RDS, RESTful APIs through OpenFeign, Spring Security authentication, and deployment on AWS App Runner.",
-    ],
-    preview: { src: "/project_preview/twitch+.png", alt: "Screenshot of the Twitch+ personalized recommendation application", animated: false },
   },
   resumeProject("raft"),
   {
